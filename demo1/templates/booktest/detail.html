@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情页</title>
+</head>
+<body>
+    <h2>详情页</h2>
+    <a href="/list/">返回列表页</a>
+
+    <h3>当前书籍为：{{book.titie}}</h3>
+    {% for hero in book.heroinfo_set.all %}
+        <ul>
+            <li>
+                {{hero.name}}-----{{hero.centent}}
+            </li>
+        </ul>
+    {% endfor %}
+
+    <a href="/">返回首页</a>
+</body>
+</html>

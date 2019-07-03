@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表页</title>
+    <link rel="stylesheet" href="/static/css/thiscss.css">
+    <!--<script src="/static/js/测试.js"></script>-->
+
+</head>
+<body>
+    <h2>列表页</h2>
+    <a href="/">返回首页</a>
+    <ul>
+        {% for book in books %}
+            <li>
+                <a href="/detail/{{book.id}}/">{{book.titie}} <span class="time">{{book.pub_date}}</span></a>
+            </li>
+        {% endfor %}
+    </ul>
+
+
+
+
+</body>
+</html>
