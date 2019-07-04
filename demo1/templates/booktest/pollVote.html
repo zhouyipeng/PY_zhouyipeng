@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>投票详情</title>
+</head>
+<body>
+    <h2>{{polls.vote}}</h2>
+    <form action="{% url 'polls:vote' polls.id %}" method="post">
+        {% for i in polls.voteinfo_set.all %}
+        <input type="radio" name="num" value="{{i.id}}">{{i.category}}
+        {% endfor %}
+        <button type="submit">投票</button>
+    </form>
+    <a href="{% url 'polls:index' %}">返回投票首页</a>
+
+
+
+
+
+</body>
+</html>
