@@ -7,5 +7,8 @@ urlpatterns = [
     url('^index/$', views.index, name="index"),
     url('^vote/(\d+)/$', views.vote, name="vote"),
     url('^outvote/(\d+)/$', views.outvote, name="outvote"),
+    url('^userlogin/$', views.userlogin, name="userlogin"),
+    url('^userout/$', views.userout, name="userout"),
+
 
 ]

@@ -6,6 +6,9 @@ class BookInfo(models.Model):
     titie = models.CharField(max_length=50)
     pub_date = models.DateField(auto_now=True)
 
+    def __str__(self):
+        return self.titie
+
 class HeroInfo(models.Model):
     name = models.CharField(max_length=20)
     gender = models.CharField(max_length=5, choices=(("man","男"), ("women", "女")))

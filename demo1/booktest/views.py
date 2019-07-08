@@ -63,5 +63,4 @@ def addhero(request, id):
         h1.book = book
         h1.gender = gender
         h1.save()
-        # return HttpResponse("添加成功")
         return redirect(reverse("booktest:detail", args=(id, )))

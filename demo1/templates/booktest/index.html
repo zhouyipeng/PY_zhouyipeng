@@ -8,8 +8,10 @@
 
 </head>
 <body>
+
+
     <h2>首页</h2>
-    <a href="/polls/index/">进入投票页面</a>
+    <a href="{% url 'polls:index' %}">进入投票页面</a>
     <!--<a href="/list/">进入列表页</a>-->
     <a href="{% url 'booktest:list' %}">进入列表页</a>
 
@@ -25,28 +27,36 @@
 
           <!-- Wrapper for slides -->
           <div style="height: 280px" class="carousel-inner" role="listbox">
+
               <div class="item active">
+                  <a target="_blank" href="http://www.baidu.com">
                   <img src="static/img/图1.jpg" alt="...">
-                  <div class="carousel-caption">
-                  </div>
+                  </a>
+                  <div class="carousel-caption"></div>
               </div>
 
           <div class="item">
+              <a target="_blank" href="http://www.qq.com">
               <img src="static/img/图2.jpg" alt="...">
+              </a>
               <div class="carousel-caption">
 
               </div>
           </div>
 
           <div class="item">
+              <a target="_blank" href="http://www.17173.com">
               <img src="static/img/图3.jpg" alt="...">
+              </a>
               <div class="carousel-caption">
                 ...
               </div>
           </div>
 
               <div class="item">
+                  <a target="_blank" href="http://www.duowan.com">
               <img src="static/img/图4.jpg" alt="...">
+                  </a>
               <div class="carousel-caption">
                 ...
               </div>
