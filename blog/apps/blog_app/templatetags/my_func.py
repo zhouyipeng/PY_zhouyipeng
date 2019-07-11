@@ -4,10 +4,41 @@
 """
 
 from django.template import library
-from blog_app.models import Article
+from blog_app.models import Article, Tag, Category, Ads
+from comment_app.models import Comment
 
 register = library.Library()
 
+
+# 获得文章创建日期
 @register.simple_tag
 def getlatestarticles(num=4):
     return Article.objects.order_by("-create_time")[:num]
+
+# 获得回档日期
+@register.simple_tag
+def gettime(num=4):
+    times = Article.objects.dates("create_time", "month", "DESC")[:num]
+    print(times)
+    return times
+
+# 获得文章类别
+@register.simple_tag
+def getcategory():
+    category = Category.objects.all()
+    return category
+
+# 获得标签
+@register.simple_tag
+def gettags():
+    tags = Tag.objects.all()
+    return tags
+
+@register.filter
+def mysplit(value):
+    return value.split('.')
+
+@register.filter
+def myjoin(value, uvalue):
+    return uvalue.join(value)
+
