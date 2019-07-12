@@ -19,6 +19,11 @@ class VoteInfo(models.Model):
     num = models.IntegerField(default=0)
     poll = models.ForeignKey(PollsInfo, on_delete=models.CASCADE)
 
+class PollsUser(User):
+    telephone = models.CharField(max_length=11)
+
+
+
 
 
 

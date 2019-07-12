@@ -1,4 +1,4 @@
-"""demo1 URL Configuration
+"""blog_app URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -16,10 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
-
+from django.views.static import serve
+import xadmin
+from .settings import MEDIA_ROOT
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    url('polls/', include('polls.urls', namespace='polls')),
-    url('', include('booktest.urls', namespace='booktest')),
+    # path('admin/', admin.site.urls),
+    path('xadmin/', xadmin.site.urls),
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
+    url('', include("blog_app.urls", namespace="blog_app")),
+    url('ueditor/', include('DjangoUeditor.urls')),
+    url('', include("comment_app.urls", namespace="comment")),
+    url('search/', include('haystack.urls')),
+
 ]

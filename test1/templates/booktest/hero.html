@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>英雄</title>
+</head>
+<body>
+    <ul>
+        {% for i in hero %}
+        <li><a href="{% url 'booktest:herodetail' i.id %}">{{i.heroname}}</a>---------<a href="{% url 'booktest:delhero' i.id %}">删除</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'booktest:addhero' %}">添加英雄</a>
+
+</body>
+</html>

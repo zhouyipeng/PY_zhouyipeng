@@ -4,8 +4,7 @@
 """
 
 from django.template import library
-from blog_app.models import Article, Tag, Category, Ads
-from comment_app.models import Comment
+from blog_app.models import Article, Tag, Category
 
 register = library.Library()
 

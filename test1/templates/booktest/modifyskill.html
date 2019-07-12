@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{skill.hero.heroname}}---{{skill.skill}}</title>
+</head>
+<body>
+    <form action="{% url 'booktest:modifyskill' skill.id %}" method="post">
+        技能名：<input type="text" name="skill" value="{{skill.skill}}"><br>
+        攻击力：<input type="text" name="atk" value="{{skill.atk}}"><br>
+        <input type="submit">
+    </form>
+
+</body>
+</html>

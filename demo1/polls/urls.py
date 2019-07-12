@@ -9,6 +9,8 @@ urlpatterns = [
     url('^outvote/(\d+)/$', views.outvote, name="outvote"),
     url('^userlogin/$', views.userlogin, name="userlogin"),
     url('^userout/$', views.userout, name="userout"),
+    url('^regist/$', views.regist, name="regist"),
+
 
 
 ]

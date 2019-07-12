@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加英雄</title>
+</head>
+<body>
+    <a href="{% url 'booktest:hero' %}">返回英雄页</a>
+    <form action="{% url 'booktest:addhero' %}" method="post">
+        英雄名：<input type="text" name="heroname"><br>
+        <input type="submit">
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>英雄详细</title>
+</head>
+<body>
+    <a href="{% url 'booktest:hero' %}">返回英雄页</a>
+    <h2>英雄名：{{hero.heroname}}</h2>
+    <ul>
+        {% for i in hero.skillsinfo_set.all %}
+            {% if forloop.counter == 1 %}
+            <li>技能名：{{i.skill}}<a href="{% url 'booktest:delskills' i.id %}">删除技能</a></li>
+            <li>攻击力：{{i.atk}}</li>
+            {% else %}
+            <li>-----------------------</li>
+            <li>技能名：{{i.skill}}<a href="{% url 'booktest:delskills' i.id %}">删除技能</a></li>
+            <li>攻击力：{{i.atk}}</li>
+            {% endif %}
+            <a href="{% url 'booktest:modifyskill' i.id %}">修改技能</a>
+        {% endfor %}
+    </ul>
+    <form action="{% url 'booktest:addskill' hero.id %}" method="post">
+        添加技能：<input type="text" name="name"><br>
+        技能攻击力：<input type="text" name="atk"><br>
+        <input type="submit">
+    </form>
+
+</body>
+</html>

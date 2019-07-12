@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import *
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.template import loader
@@ -23,9 +23,9 @@ def checklogin(fun):
 def userlogin(request):
     if request.method == "GET":
         return render(request, "booktest/login.html")
-
     elif request.method == "POST":
         username = request.POST.get("username")
+        password = request.POST.get("pwd")
         # 1.使用cookies存储信息
         # 登录成功，存储cookie
         # response = redirect(reverse('polls:index'))
@@ -35,7 +35,33 @@ def userlogin(request):
 
         # 2.使用session进行存储
         request.session["username"] = username
-        return redirect(reverse('polls:index'))
+        user = authenticate(request,username=username,password=password)
+        if user:
+            login(request, user)
+            return redirect(reverse('polls:index'), locals())
+        else:
+            return redirect(reverse('polls:userlogin'))
+
+
+# 用户注册
+def regist(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("pwd")
+        password2 = request.POST.get("pwd2")
+        if password == password2:
+            # 如果账号已存在会报错，使用try捕捉
+            try:
+                user = PollsUser.objects.create_user(username=username, password=password)
+            except:
+                user = None
+
+            if user:
+                return redirect(reverse('polls:userlogin'))
+            else:
+                return render(request, 'booktest/login.html', {"errors": "此账号已被注册"})
+        else:
+            return render(request, 'booktest/login.html', {"errors": "注册失败,两次密码不一致"})
 
 
 
@@ -47,7 +73,9 @@ def userout(request):
     # response.delete_cookie("username")
 
     # 退出时session的删除
-    request.session.flush()
+    # request.session.flush()
+    logout(request)
+
     return redirect(reverse('booktest:index'))
 
 
@@ -55,14 +83,23 @@ def userout(request):
 # 主页
 @checklogin
 def index(request):
+    # print(request.user, request.user.is_authenticated)
+    # print(request)
+    # username = request.POST.get("username")
+    # password = request.POST.get("pwd")
+    # user = authenticate(request, username=username, password=password)
+    # if user:
+    #     print(user, user.is_authenticated)
+    #     login(request, user)
+    # else:
+    #     print("授权失败")
 
-    username = request.session.get("username")
+    # username = request.session.get("username")
     # 判断是否读取到username，如果读取到进入首页，没有跳回登录界面
-    if username:
-        polls = PollsInfo.objects.all()
-        return render(request, "booktest/pollIndex.html", locals())
-    else:
-        return redirect(reverse("polls:login"))
+
+    polls = PollsInfo.objects.all()
+    return render(request, "booktest/pollIndex.html", locals())
+
 
 # 投票页面
 @checklogin
