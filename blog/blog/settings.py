@@ -18,8 +18,8 @@ import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(BASE_DIR,"apps"))
-sys.path.insert(1, os.path.join(BASE_DIR,"extra_apps"))
+sys.path.insert(0, os.path.join(BASE_DIR, "apps"))
+sys.path.insert(1, os.path.join(BASE_DIR, "extra_apps"))
 
 
 # Quick-start development settings - unsuitable for production
@@ -153,4 +153,7 @@ HAYSTACK_CONNECTIONS = {
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 4
 
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+
+
 

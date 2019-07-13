@@ -9,7 +9,7 @@
     <!--加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body style="margin: 40px">
 
     {% if errors %}
         <script>alert("{{errors}}")</script>
@@ -18,7 +18,7 @@
 
     <div>
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
+        <ul style="width: 400px" class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#login" aria-controls="login" role="tab" data-toggle="tab">登录</a>
             </li>
             <li role="presentation"><a href="#regist" aria-controls="regist" role="tab" data-toggle="tab">注册</a>
@@ -26,7 +26,7 @@
         </ul>
 
         <!-- Tab panes -->
-        <div class="tab-content">
+        <div style="width: 400px" class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="login">
                 <h2>登录</h2>
                 <form action="{% url 'polls:userlogin' %}" method="post">
@@ -37,6 +37,11 @@
                     <div class="form-group">
                         <label for="password">密码：</label>
                         <input type="password" class="form-control" id="password" placeholder="请输入密码" name="pwd">
+                    </div>
+                    <div class="form-group">
+                        <label for="verify">验证码：</label>
+                        <img id="mychange" src="{% url 'polls:verify' %}"><a href="#" id="changeverify">看不清？换一张</a><br>
+                        <input type="text" class="form-control" id="verify" placeholder="请输入验证码" name="verify">
                     </div>
                     <button type="submit" class="btn btn-default">登录</button>
                 </form>
@@ -57,12 +62,23 @@
                         <label for="againpassword">重复密码：</label>
                         <input type="password" class="form-control" id="againpassword" placeholder="请输入密码" name="pwd2">
                     </div>
+                    <div class="form-group">
+                        <label for="useremail">重复密码：</label>
+                        <input type="email" class="form-control" id="useremail" placeholder="请输入邮箱" name="email">
+                    </div>
                     <button type="submit" class="btn btn-default">注册</button>
                 </form>
             </div>
         </div>
 
     </div>
+
+    <script>
+        // 点击更换验证码，切换验证码
+        $("#changeverify").click(function () {
+            $("#mychange").attr("src", "/polls/verify/?t="+ new Date().getTime())
+        })
+    </script>
 
 
 </body>

@@ -21,6 +21,8 @@ class VoteInfo(models.Model):
 
 class PollsUser(User):
     telephone = models.CharField(max_length=11)
+    status = models.BooleanField(default=False)
+    useractive = models.BooleanField(default=True)
 
 
 

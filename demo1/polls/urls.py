@@ -10,6 +10,8 @@ urlpatterns = [
     url('^userlogin/$', views.userlogin, name="userlogin"),
     url('^userout/$', views.userout, name="userout"),
     url('^regist/$', views.regist, name="regist"),
+    url('^verify/$', views.verify, name="verify"),
+    url('^active/(.*?)/$', views.active, name="active"),
 
 
 

@@ -7,6 +7,7 @@ from django.core.paginator import Paginator, Page
 
 # Create your views here.
 
+# 将文章分页显示
 def getpage(request, object_list, per_num):
     pagenum = request.GET.get("page")
     pagenum = 1 if not pagenum else pagenum
