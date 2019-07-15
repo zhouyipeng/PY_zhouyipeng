@@ -31,17 +31,18 @@ class Tag(models.Model):
 
 # 文章
 class Article(models.Model):
-    title = models.CharField(max_length=40)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    create_time = models.DateTimeField(auto_now_add=True)
-    update_time = models.DateTimeField(auto_now=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-    views = models.IntegerField(default=0)
+    title = models.CharField(verbose_name="标题", max_length=40)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="类别")
+    create_time = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
+    update_time = models.DateTimeField(auto_now=True, verbose_name="修改时间")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="作者")
+    views = models.IntegerField(default=0, verbose_name="阅读量")
     # body = models.TextField()
-    body = UEditorField(imagePath="articleimg/", width="100%")
-    tags = models.ManyToManyField(Tag)
+    body = UEditorField(imagePath="articleimg/", width="100%", verbose_name="内容")
+    tags = models.ManyToManyField(Tag, verbose_name="标签")
 
     def __str__(self):
         return self.title
+
 
 

@@ -33,6 +33,7 @@ def gettags():
     tags = Tag.objects.all()
     return tags
 
+
 @register.filter
 def mysplit(value):
     return value.split('.')

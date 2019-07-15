@@ -50,7 +50,7 @@ def userlogin(request):
 
         # user = authenticate(request,username=username,password=password)
         user = PollsUser.objects.filter(username=username).first()
-        print(PollsUser.objects.filter(username=123).first())
+        print(PollsUser.objects.filter(username=username).first())
         if user.check_password(password):
             if user.is_active:
                 # 验证码校验
@@ -59,7 +59,7 @@ def userlogin(request):
                 if not verifycode.upper() == cache.get("verify").upper():
                     return render(request, 'booktest/login.html', {"errors": "验证码错误！"})
                 # 登录成功存储session信息
-                request.session["username"] = username
+                # request.session["username"] = username
                 login(request, user)
                 return redirect(reverse('polls:index'))
             else:
