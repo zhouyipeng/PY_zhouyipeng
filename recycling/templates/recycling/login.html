@@ -1,0 +1,84 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>用户登录</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="google-site-verification"
+	content="MSxPs3zI5vks57VZfstHOD5EVfgQR9Y0nOUHPerhEKQ" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link href="/static/css/main.css" type="text/css" rel="stylesheet" />
+<link href="/static/css/register.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/static/js/code.js"></script>
+</head>
+<body>
+
+	{% if ok %}
+		<script type="text/javascript">alert('{{ok}}')</script>
+	{% endif %}
+
+	<!--头部-->
+	<div class="head" style="width: 100%" id="page_head">
+		<!--LOGO-->
+
+		<div class="logo_bg">
+			<div class="logo">
+				<div class="logo_left">
+					<a href="/"><img src="/static/images/logo.png" /></a>
+				</div>
+			</div>
+			<div class="top-nav">
+				<strong>回收哥登录</strong>
+			</div>
+		</div>
+
+		<!--LOGO END-->
+		<form action="{% url 'recycling:login' %}" method="post">
+			{% csrf_token %}
+			<div class="forgot-password-rb">
+				<div class="reg1-1">
+					<ul>
+						<li><span>账户：</span><input name="username" type="text" class="text" /></li>
+						<li><span>密码：</span><input name="password" type="password" class="text" /></li>
+					</ul>
+				</div>
+				<div class="reg-btn1 yahei">
+					<input type="submit" class="btn3">
+				</div>
+			</div>
+		</form>
+	</div>
+	<!--container end-->
+
+
+	<!--底部-->
+	<div class="foot_bg">
+		<div class="foot">
+			<div class="foot_left yahei">
+				<div class="foot_l1">
+					<a href="../about-us.html#zd_1" target="_blank">联系我们</a><a
+						href="../about-us.html#zd_2" target="_blank">关于我们</a><a
+						href="../about-us.html#zd_3" target="_blank">帮助中心</a>
+				</div>
+				<p>
+					© 2015 huishouge.cn All Rights Reserved</br>版权所有：格林美股份有限公司
+					粤ICP备05063494号-4
+				</p>
+			</div>
+			<div class="foot_right yahei">
+				<ul>
+					<li><a onclick="codeShow()" target="_self"><img
+							src="/static/images/foot_ico1.png" /><span>关注微信</span></a></li>
+					<li><a onclick="ioscodeShow()" target="_self"><img
+							src="/static/images/foot_ico2.png" /><span>iOS下载</span></a></li>
+					<li class="mrnone"><a onclick="androidcodeShow()"
+						target="_self"><img src="/static/images/foot_ico3.png" /><span>安卓下载</span></a></li>
+				</ul>
+			</div>
+			<div class=" clear"></div>
+		</div>
+	</div>
+</body>
+</html>

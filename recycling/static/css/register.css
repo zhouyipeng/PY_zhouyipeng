@@ -1,0 +1,410 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*- public css--------------------------- */
+html {
+	font-family: "宋体", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+body {
+	margin: 0;
+	color: #444;
+	overflow-x: hidden;
+	background: #FFF;
+}
+
+img {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+a:hover {
+	color: #F00;
+}
+
+p {
+	line-height: 24px;
+}
+
+p a {
+	color: #F00;
+}
+
+p a:Hover {
+	text-decoration: underline;
+}
+
+ul, ol, h1, h2, li, dt, dd, dl {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+input, textarea {
+	font-size: 12px;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.clear {
+	clear: both;
+}
+
+.hide {
+	display: none;
+}
+
+.overflow {
+	overflow: auto;
+	zoom: 1;
+}
+
+.container {
+	text-align: left;
+	width: 1142px;
+	margin: 0 auto;
+}
+
+.brnone {
+	background: none !important;
+}
+
+.mrnone {
+	margin-right: 0 !important;
+}
+
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form,
+	fieldset, legend, input, textarea, p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+}
+
+.red {
+	color: #e40000;
+}
+
+.yahei {
+	font-family: "Microsoft Yahei";
+}
+
+textarea:focus, input:focus {
+	outline: none;
+}
+/*- head css--------------------------- */
+.head {
+	margin: 0 auto;
+}
+
+.logo_bg {
+	width: 100%;
+	background: #FFF;
+}
+
+.logo {
+	width: 900px;
+	margin: 0px auto;
+	height: 95px;
+	text-align: center;
+	padding: 15px 0;
+}
+
+.logo_left {
+	float: left;
+}
+
+.top-nav {
+	width: 900px;
+	margin: 0px auto;
+	height: 30px;
+}
+
+.top-nav strong {
+	display: block;
+	color: #2e2e2e;
+	font-size: 14px;
+	float: left;
+}
+
+.top-nav p {
+	display: block;
+	color: #e0611b;
+	font-size: 12px;
+	float: right;
+}
+
+.register-rb {
+	width: 820px;
+	margin: 0 auto;
+	border: 1px solid #d1d1d1;
+	background: #FFF;
+	padding: 30px 47px 50px;
+	background: url(../images/personal/register_rb_bg.jpg) right no-repeat;
+}
+
+.register {
+	width: 820px;
+	margin: 0 auto;
+	border: 1px solid #d1d1d1;
+	background: #FFF;
+	padding: 30px 47px 50px;
+	background: url(../images/personal/register_bg.jpg) right no-repeat;
+}
+
+.reg1-1 {
+	width: 308px;
+}
+
+.reg1-1 li {
+	margin-top: 25px;
+	height: 35px;
+}
+
+.reg1-1 span {
+	display: block;
+	float: left;
+	color: #555;
+	font-size: 12px;
+	width: 60px;
+	text-align: right;
+	line-height: 35px;
+	color: #6f6f6f;
+}
+
+.reg1-1 em {
+	display: block;
+	float: left;
+	color: #555;
+	font-size: 12px;
+	width: 30px;
+	font-style: normal;
+	line-height: 35px;
+	color: #6f6f6f;
+}
+
+.reg1-1 input {
+	padding-left: 5px;
+}
+
+.reg1-1 .text {
+	border: none;
+	background: url(../images/personal/text_bg.jpg) no-repeat;
+	width: 226px;
+	height: 35px;
+	line-height: 35px;
+}
+
+.reg1-1 .text2 {
+	border: none;
+	background: url(../images/personal/text_bg2.jpg) no-repeat;
+	width: 116px;
+	height: 35px;
+	line-height: 35px;
+	float: left;
+	margin-right: 5px;
+}
+
+.reg1-1 .text3 {
+	border: none;
+	background: url(../images/personal/text_bg3.jpg) no-repeat;
+	width: 93px;
+	height: 35px;
+	line-height: 35px;
+	float: left;
+	margin-right: 5px;
+}
+
+.reg1-1 .sms-btn1 {
+	border: none;
+	background: url(../images/personal/sms-btn1.png) no-repeat;
+	width: 99px;
+	height: 35px;
+	line-height: 35px;
+	color: #555;
+	float: left;
+	text-align: center;
+}
+
+.reg1-1 .reg1-mar {
+	margin-top: 20px;
+}
+
+.reg1-1 dl {
+	width: 226px;
+	float: left;
+	margin-top: 20px;
+}
+
+.reg1-1 dl dd {
+	width: 106px;
+	float: left;
+	margin-right: 10px;
+	height: 106px;
+}
+
+.reg1-1 dl dd p {
+	text-align: center;
+	font-size: 14px;
+	color: #b3b3b3;
+	font-family: "Microsoft Yahei";
+}
+
+.reg-btn1 {
+	padding: 20px 0 0 60px;
+}
+
+.reg-btn1 li {
+	float: left;
+	width: 107px;
+	height: 44px;
+	line-height: 44px;
+	color: #FFF;
+	font-size: 16px;
+	text-align: center;
+}
+
+.reg-btn1 li.btn1 {
+	background: url(../images/personal/reg-btn1.png) no-repeat;
+	margin-right: 5px;
+}
+
+.reg-btn1 li.btn2 {
+	background: url(../images/personal/reg-btn2.png) no-repeat;
+}
+
+.reg-btn1 .btn3 {
+	background: url(../images/personal/forget-submit.png) no-repeat;
+	width: 83px;
+	height: 44px;
+	line-height: 44px;
+	color: #FFF;
+	font-size: 16px;
+	text-align: center;
+}
+
+.reg-3 {
+	padding-left: 65px;
+	margin-top: 20px;
+}
+
+.reg-3 input {
+	float: left;
+	margin-right: 3px;
+}
+
+.reg-3 span {
+	float: left;
+	color: #9c9c9c;
+}
+
+.forgot-password {
+	width: 820px;
+	margin: 0 auto;
+	border: 1px solid #d1d1d1;
+	background: #FFF;
+	padding: 80px 47px 130px;
+	background: url(../images/personal/register_bg.jpg) right no-repeat;
+}
+
+.forgot-password-rb {
+	width: 820px;
+	margin: 0 auto;
+	border: 1px solid #d1d1d1;
+	background: #FFF;
+	padding: 80px 47px 130px;
+	background: url(../images/personal/register_rb_bg.jpg) right no-repeat;
+}
+
+/*---footer css------------------*/
+.foot_bg {
+	width: 100%;
+	height: 150px;
+	margin-top: 30px;
+}
+
+.foot {
+	width: 900px;
+	margin: 0 auto;
+	color: #8b8b8b;
+}
+
+.foot_left {
+	width: 460px;
+	float: left;
+}
+
+.foot_l1 {
+	background: url(../image/foot-line.png) bottom no-repeat;
+	line-height: 55px;
+	padding-left: 5px;
+}
+
+.foot_l1 a {
+	padding-right: 20px;
+	color: #454545;
+	font-size: 16px;
+}
+
+.foot_left p {
+	color: #9a9a9a;
+	font-size: 13px;
+	padding: 10px 0 0 5px;
+}
+
+.foot_left p span {
+	display: block;
+}
+
+.foot_left p span a {
+	color: #454545;
+}
+
+.foot_left p span a:hover {
+	color: #f00;
+	text-decoration: none;
+}
+
+.foot_right {
+	width: 418px;
+	height: 50px;
+	float: right;
+	margin-top: 15px;
+}
+
+.foot_right li {
+	background: url(../images/foot_button.png) no-repeat;
+	width: 126px;
+	height: 50px;
+	float: left;
+	line-height: 50px;
+	text-align: center;
+	margin-right: 20px;
+}
+
+.foot_right li a {
+	color: #FFF;
+	font-size: 16px;
+}
+
+.foot_right li img {
+	padding: 12px 5px 0 15px;
+	float: left;
+}
+
+.foot_right li span {
+	float: left;
+	display: block;
+	font-weight: 700;
+}

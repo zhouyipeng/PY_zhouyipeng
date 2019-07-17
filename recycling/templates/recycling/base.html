@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{% block title %}
+	<title>回收哥首页</title>
+{% endblock %}
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="google-site-verification"
+	content="MSxPs3zI5vks57VZfstHOD5EVfgQR9Y0nOUHPerhEKQ" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link href="/static/css/main.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/static/js/jquerypack.js"></script>
+<script type="text/javascript" src="/static/js/superslide.js"></script>
+<script type="text/javascript" src="/static/js/code.js"></script>
+</head>
+<body>
+	{% if ok %}
+		<script type="text/javascript">
+			alert('{{ok}}')
+		</script>
+	{% endif %}
+
+
+	<!--头部-->
+	<div class="head" style="width: 100%" id="page_head">
+		<!--LOGO-->
+
+		<div class="top_bg">
+			<div class="top">
+				<div class="top_left">
+					<div class="top_l1">
+						<a href="" target="_blank"><img src="/static/images/top_1.png" />手机版</a><span>|</span>
+					</div>
+					<div class="top_l2">
+						<a href="" target="_blank"><img src="/static/images/top_2.png" />武汉</a><span><a
+							href="" target="_blank">天津</a><a href="" target="_blank">[更多]</a></span>
+					</div>
+				</div>
+				<div class="top_right">
+					<div class="top_r1">
+						{% if request.user and request.user.is_authenticated %}
+							<strong>当前用户为:{{request.user}}</strong>
+							<a href="{% url 'recycling:userloginout' %}">退出</a>
+						{% else %}
+							<a id="getButton" onclick="noteShow()" href="{% url 'recycling:login' %}" target="_self">登录</a>
+							<a href="{% url 'recycling:register' %}" target="_blank">注册</a>
+						{% endif %}
+
+					</div>
+					<span>|</span>
+					<div class="top_r2">
+						<a href="{% url 'recycling:order' %}" target="_self"><img
+							src="/static/images/top_3.png" />订单中心</a>
+					</div>
+					<span>|</span>
+					<div class="top_r3">
+						<a href="waste-baskets.html" target="_self"><img
+							src="/static/images/top_4.png" />废品筐（0）</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% block head %}
+		<div class="logo_bg">
+			<div class="logo">
+				<div class="logo_left">
+					<a href="/"><img src="/static/images/logo.png" /></a>
+				</div>
+				<div class="logo_nav yahei">
+					<ul>
+						<li><a href="{% url 'recycling:hazard' %}">废品危害</a></li>
+						<li><a href="{% url 'recycling:environ' %}">环境价值</a></li>
+						<li><a href="{% url 'recycling:brother' %}">回收哥加盟</a></li>
+						<li><a href="{% url 'recycling:waste' %}">废品交投</a></li>
+						<li class="nav_now"><a href="{% url 'recycling:index' %}">首页</a></li>
+					</ul>
+
+				</div>
+
+			</div>
+		</div>
+		{% endblock %}
+
+
+		<!--LOGO END-->
+
+		{% block mid %}
+
+		{% endblock %}
+
+		<!--BANNER END-->
+	</div>
+
+
+
+	<!--底部-->
+	<div class="foot_bg">
+		<div class="foot">
+			<div class="foot_left yahei">
+				<div class="foot_l1">
+					<a href="about-us.html#zd_1" target="_blank">联系我们</a><a
+						href="about-us.html#zd_2" target="_blank">关于我们</a><a
+						href="about-us.html#zd_3" target="_blank">帮助中心</a>
+				</div>
+				<p>
+					© 2015 huishouge.cn All Rights Reserved<br>版权所有：格林美股份有限公司
+					粤ICP备05063494号-4
+				</p>
+			</div>
+			<div class="foot_right yahei">
+				<ul>
+					<li><a onclick="codeShow()" target="_self"><img
+							src="/static/images/foot_ico1.png" /><span>关注微信</span></a></li>
+					<li><a onclick="ioscodeShow()" target="_self"><img
+							src="/static/images/foot_ico2.png" /><span>iOS下载</span></a></li>
+					<li class="mrnone"><a onclick="androidcodeShow()"
+						target="_self"><img src="/static/images/foot_ico3.png" /><span>安卓下载</span></a></li>
+				</ul>
+			</div>
+			<div class=" clear"></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+{% extends 'recycling/base.html' %}
+{% block title %}
+	<title>废品危害列表</title>
+{% endblock %}
+
+{% block mid %}
+	<meta name="google-site-verification"
+	content="MSxPs3zI5vks57VZfstHOD5EVfgQR9Y0nOUHPerhEKQ" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico" />
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+	<link href="/static/css/main.css" type="text/css" rel="stylesheet" />
+	<link href="/static/css/index.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/static/js/jquerypack.js"></script>
+	<script type="text/javascript" src="/static/js/code.js"></script>
+	<div class="hazardous-waste-banner"></div>
+	<div class="container">
+			<div class="en-value">
+				<div class="en-value-left">
+					<div class="en-value-left-1">
+						<img src="/static/images/environmental/en_ico2.png" /> <span
+							class="yahei">废品危害</span>
+					</div>
+					<div class="en-value-left-2">
+						<ul>
+							<li class="en-value-now">普及知识</li>
+							<li>业界动态</li>
+						</ul>
+					</div>
+				</div>
+				<div class="en-value-right-box">
+					<div class="en-value-right">
+						<div class="en-value-right-1">首页>普及知识>垃圾成堆</div>
+						<div class="en-value-right-2">
+							<div class="en-value-tit yahei">线下活动</div>
+							<ul>
+								{% for i in activity %}
+									<li>
+									<p>
+										<a href="{% url 'recycling:envart' i.id %}" target="_blank">{{i.title}}</a>
+									</p><span>{{i.create_time}}</span>
+								</li>
+								{% endfor %}
+
+							</ul>
+						</div>
+						<div class="en-value-right-3">
+							<dl>
+								<dt>上一页</dt>
+								<dd>1</dd>
+								<dd>2</dd>
+								<dd>3</dd>
+								<dd>...</dd>
+								<dt>下一页</dt>
+							</dl>
+						</div>
+					</div>
+					<div class="en-value-right hide">
+						<div class="en-value-right-1">首页>业界动态>公司活动</div>
+						<div class="en-value-right-2">
+							<div class="en-value-tit yahei">公司活动</div>
+							<ul>
+								{% for i in activity2 %}
+								<li>
+									<p>
+										<a href="{% url 'recycling:envart' i.id %}" target="_blank">{{i.title}}</a>
+									</p><span>{{i.create_time}}</span>
+								</li>
+								{% endfor %}
+
+							</ul>
+						</div>
+						<div class="en-value-right-3">
+							<dl>
+								<dt>上一页</dt>
+								<dd>1</dd>
+								<dd>2</dd>
+								<dd>3</dd>
+								<dd>...</dd>
+								<dt>下一页</dt>
+							</dl>
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<script type="text/javascript">
+            // 切换
+            var TabDoc = {
+                _id : null,
+                init : function(id) {
+                    this._id = id;
+
+                    var cli = $("." + id).find("li");
+                    cli.each ( function (index) {
+                        $(this).click( function (event) {
+                            // cli.index(this); 当前索引
+                            cli.each ( function () {
+                                $(this).removeClass("en-value-now");
+                                $(".en-value-right-box").children(".en-value-right").hide()
+                            });
+                            $(this).addClass("en-value-now");
+                            var thisindex = cli.index(this)+1;
+                            $(".en-value-right-box .en-value-right:nth-child(" + thisindex + ")").show()
+                        });
+                    });
+                }
+            }
+            TabDoc.init("en-value-left-2");
+        </script>
+		</div>
+{% endblock %}

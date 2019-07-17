@@ -1,0 +1,514 @@
+{% extends 'recycling/base.html' %}
+
+{% block title %}
+<title>废品回收</title>
+{% endblock %}
+
+{% block mid %}
+	<meta name="google-site-verification"
+		content="MSxPs3zI5vks57VZfstHOD5EVfgQR9Y0nOUHPerhEKQ" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico" />
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+	<link href="/static/css/main.css" type="text/css" rel="stylesheet" />
+	<link href="/static/css/index.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/static/js/jquerypack.js"></script>
+	<script type="text/javascript" src="/static/js/superslide.js"></script>
+	<script type="text/javascript" src="/static/js/code.js"></script>
+	<div class="waste-recycling-banner"></div>
+	<div class="container">
+		<div class="search yahei">
+			<div class="search-1">搜索机器型号</div>
+			<div class="search-2">
+				<div class="search-2-1">
+					<div class="search-text">
+						<input type="text" class="" placeholder="输入关键字搜索" />
+					</div>
+					<div class="search-btn">搜索</div>
+				</div>
+				<div class="search-2-2">
+					<a href="" target="_blank">iPhone 4</a> <a href="" target="_blank">iPhone
+						4S</a> <a href="" target="_blank">iPhone 5S</a>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="wr1">
+			<div class="wr1-1 yahei">
+				<strong>回收分类</strong> <span>Recycling Category</span>
+			</div>
+			<div class="wr1-2 yahei">
+				<ul>
+					<li class="wr1-2-now"><img
+						src="/static/images/waste-recycling/wr1_1.png" /> <span>大家电</span></li>
+					<li><img src="/static/images/waste-recycling/wr1_2.png" /> <span>小家电</span>
+					</li>
+					<li><img src="/static/images/waste-recycling/wr1_3.png" /> <span>手机</span>
+					</li>
+					<li><img src="/static/images/waste-recycling/wr1_4.png" /> <span>废电池</span>
+					</li>
+					<li><img src="/static/images/waste-recycling/wr1_5.png" /> <span>废灯管</span>
+					</li>
+					<li><img src="/static/images/waste-recycling/wr1_6.png" /> <span>废纸</span>
+					</li>
+					<li><img src="/static/images/waste-recycling/wr1_7.png" /> <span>废塑料</span>
+					</li>
+					<li><img src="/static/images/waste-recycling/wr1_8.png" /> <span>废铜烂铁</span>
+					</li>
+					<li><img src="/static/images/waste-recycling/wr1_9.png" /> <span>报废汽车</span>
+					</li>
+					<li><img src="/static/images/waste-recycling/wr1_10.png" /> <span>其它废车</span>
+					</li>
+					<li><img src="/static/images/waste-recycling/wr1_11.png" /> <span>厨房五金</span>
+					</li>
+					<li><img src="/static/images/waste-recycling/wr1_12.png" /> <span>其它
+					</span></li>
+
+				</ul>
+			</div>
+		</div>
+
+		<div class="wr2 yahei">
+			<div class="wr2-1">
+				<strong>小分类选择</strong> <span>Select Small Category</span>
+			</div>
+			<div class="wr2-2-box">
+				<div class="wr2-2">
+					<ul>
+						<li><img src="/static/images/waste-recycling/wr2_1.png" /> <span>传真机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_2.png" /> <span>电话单机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_3.png" /> <span>电热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_4.png" /> <span>复印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_5.png" /> <span>激光打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_6.png" /> <span>监视器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_7.png" /> <span>喷墨打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_8.png" /> <span>燃气热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_9.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_10.png" /> <span>针式打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_11.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_12.png" /> <span>针式打印机</span>
+						</li>
+
+					</ul>
+				</div>
+				<div class="wr2-2 hide">
+					<ul>
+						<li><img src="/static/images/waste-recycling/wr2_1.png" /> <span>传真机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_2.png" /> <span>电话单机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_5.png" /> <span>激光打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_6.png" /> <span>监视器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_7.png" /> <span>喷墨打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_8.png" /> <span>燃气热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_9.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_10.png" /> <span>针式打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_3.png" /> <span>电热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_4.png" /> <span>复印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_11.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_12.png" /> <span>针式打印机</span>
+						</li>
+
+					</ul>
+				</div>
+				<div class="wr2-2 hide">
+					<ul>
+						<li><img src="/static/images/waste-recycling/wr2_1.png" /> <span>传真机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_2.png" /> <span>电话单机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_3.png" /> <span>电热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_8.png" /> <span>燃气热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_9.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_10.png" /> <span>针式打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_4.png" /> <span>复印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_5.png" /> <span>激光打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_6.png" /> <span>监视器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_7.png" /> <span>喷墨打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_11.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_12.png" /> <span>针式打印机</span>
+						</li>
+
+					</ul>
+				</div>
+				<div class="wr2-2 hide">
+					<ul>
+						<li><img src="/static/images/waste-recycling/wr2_3.png" /> <span>电热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_4.png" /> <span>复印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_5.png" /> <span>激光打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_6.png" /> <span>监视器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_7.png" /> <span>喷墨打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_8.png" /> <span>燃气热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_9.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_10.png" /> <span>针式打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_1.png" /> <span>传真机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_2.png" /> <span>电话单机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_11.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_12.png" /> <span>针式打印机</span>
+						</li>
+
+					</ul>
+				</div>
+				<div class="wr2-2 hide">
+					<ul>
+						<li><img src="/static/images/waste-recycling/wr2_1.png" /> <span>传真机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_2.png" /> <span>电话单机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_3.png" /> <span>电热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_4.png" /> <span>复印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_5.png" /> <span>激光打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_8.png" /> <span>燃气热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_9.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_6.png" /> <span>监视器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_7.png" /> <span>喷墨打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_10.png" /> <span>针式打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_11.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_12.png" /> <span>针式打印机</span>
+						</li>
+
+					</ul>
+				</div>
+				<div class="wr2-2 hide">
+					<ul>
+						<li><img src="/static/images/waste-recycling/wr2_1.png" /> <span>传真机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_2.png" /> <span>电话单机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_3.png" /> <span>电热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_4.png" /> <span>复印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_5.png" /> <span>激光打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_6.png" /> <span>监视器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_7.png" /> <span>喷墨打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_8.png" /> <span>燃气热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_9.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_10.png" /> <span>针式打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_11.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_12.png" /> <span>针式打印机</span>
+						</li>
+
+					</ul>
+				</div>
+				<div class="wr2-2 hide">
+					<ul>
+						<li><img src="/static/images/waste-recycling/wr2_1.png" /> <span>传真机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_2.png" /> <span>电话单机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_5.png" /> <span>激光打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_6.png" /> <span>监视器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_7.png" /> <span>喷墨打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_8.png" /> <span>燃气热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_9.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_10.png" /> <span>针式打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_3.png" /> <span>电热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_4.png" /> <span>复印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_11.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_12.png" /> <span>针式打印机</span>
+						</li>
+
+					</ul>
+				</div>
+				<div class="wr2-2 hide">
+					<ul>
+						<li><img src="/static/images/waste-recycling/wr2_1.png" /> <span>传真机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_2.png" /> <span>电话单机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_3.png" /> <span>电热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_4.png" /> <span>复印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_5.png" /> <span>激光打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_6.png" /> <span>监视器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_7.png" /> <span>喷墨打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_8.png" /> <span>燃气热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_9.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_10.png" /> <span>针式打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_11.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_12.png" /> <span>针式打印机</span>
+						</li>
+
+					</ul>
+				</div>
+				<div class="wr2-2 hide">
+					<ul>
+						<li><img src="/static/images/waste-recycling/wr2_1.png" /> <span>传真机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_2.png" /> <span>电话单机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_3.png" /> <span>电热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_4.png" /> <span>复印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_5.png" /> <span>激光打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_9.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_10.png" /> <span>针式打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_6.png" /> <span>监视器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_7.png" /> <span>喷墨打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_8.png" /> <span>燃气热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_11.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_12.png" /> <span>针式打印机</span>
+						</li>
+
+					</ul>
+				</div>
+				<div class="wr2-2 hide">
+					<ul>
+						<li><img src="/static/images/waste-recycling/wr2_1.png" /> <span>传真机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_8.png" /> <span>燃气热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_9.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_2.png" /> <span>电话单机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_3.png" /> <span>电热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_4.png" /> <span>复印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_5.png" /> <span>激光打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_6.png" /> <span>监视器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_7.png" /> <span>喷墨打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_10.png" /> <span>针式打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_11.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_12.png" /> <span>针式打印机</span>
+						</li>
+
+					</ul>
+				</div>
+				<div class="wr2-2 hide">
+					<ul>
+						<li><img src="/static/images/waste-recycling/wr2_1.png" /> <span>传真机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_2.png" /> <span>电话单机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_3.png" /> <span>电热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_4.png" /> <span>复印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_5.png" /> <span>激光打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_6.png" /> <span>监视器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_7.png" /> <span>喷墨打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_8.png" /> <span>燃气热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_9.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_10.png" /> <span>针式打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_11.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_12.png" /> <span>针式打印机</span>
+						</li>
+
+					</ul>
+				</div>
+				<div class="wr2-2 hide">
+					<ul>
+						<li><img src="/static/images/waste-recycling/wr2_3.png" /> <span>电热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_4.png" /> <span>复印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_5.png" /> <span>激光打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_6.png" /> <span>监视器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_7.png" /> <span>喷墨打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_8.png" /> <span>燃气热水器</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_9.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_1.png" /> <span>传真机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_2.png" /> <span>电话单机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_10.png" /> <span>针式打印机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_11.png" /> <span>吸油烟机</span>
+						</li>
+						<li><img src="/static/images/waste-recycling/wr2_12.png" /> <span>针式打印机</span>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="wr3">
+			<div class="wr3-1 yahei">
+				<strong>3R积分商场</strong> <span>3RPoints mall</span>
+			</div>
+			<div class="wr3-2">
+				<ul>
+					<li><img src="/static/images/waste-recycling/wr3_1.jpg" /> <strong
+						class=" yahei">市场价格：￥10.00</strong> <span>防滑隔热垫</span>
+						<p>
+							兑换所需积分：<em>100</em>
+						</p></li>
+					<li><img src="/static/images/waste-recycling/wr3_2.jpg" /> <strong
+						class=" yahei">市场价格：￥25.00</strong> <span>城市果园盆栽</span>
+						<p>
+							兑换所需积分：<em>250</em>
+						</p></li>
+					<li><img src="/static/images/waste-recycling/wr3_3.jpg" /> <strong
+						class=" yahei">市场价格：￥25.00</strong> <span>康乐欧式纸巾盒</span>
+						<p>
+							兑换所需积分：<em>100</em>
+						</p></li>
+					<li><img src="/static/images/waste-recycling/wr3_4.jpg" /> <strong
+						class=" yahei">市场价格：￥30.00</strong> <span>迷你风扇</span>
+						<p>
+							兑换所需积分：<em>350</em>
+						</p></li>
+					<li class="mrnone"><img src="/static/images/waste-recycling/wr3_5.jpg" />
+						<strong class=" yahei">市场价格：￥40.00</strong> <span>咪咪熊煮蛋器</span>
+						<p>
+							兑换所需积分：<em>400</em>
+						</p></li>
+					<li><img src="/static/images/waste-recycling/wr3_6.jpg" /> <strong
+						class=" yahei">市场价格：￥60.00</strong> <span>花篮加湿器</span>
+						<p>
+							兑换所需积分：<em>600</em>
+						</p></li>
+					<li><img src="/static/images/waste-recycling/wr3_7.jpg" /> <strong
+						class=" yahei">市场价格：￥70.00</strong> <span>盆栽太阳能灯</span>
+						<p>
+							兑换所需积分：<em>700</em>
+						</p></li>
+					<li><img src="/static/images/waste-recycling/wr3_8.jpg" /> <strong
+						class=" yahei">市场价格：￥149.00</strong> <span>金刚音响</span>
+						<p>
+							兑换所需积分：<em>1490</em>
+						</p></li>
+					<li><img src="/static/images/waste-recycling/wr3_9.jpg" /> <strong
+						class=" yahei">市场价格：￥149.00</strong> <span>多功能电蒸锅</span>
+						<p>
+							兑换所需积分：<em>1490</em>
+						</p></li>
+					<li class="mrnone"><img
+						src="/static/images/waste-recycling/wr3_10.jpg" /> <strong class=" yahei">市场价格：￥169.00</strong>
+						<span>零碳台灯</span>
+						<p>
+							兑换所需积分：<em>1690</em>
+						</p></li>
+					<div class="clear"></div>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+	<!--container end-->
+	<script type="text/javascript">
+	// 专家
+	  var TabDoc = {
+		  _id : null,
+		  init : function(id) {
+			  this._id = id;
+
+			  var cli = $("." + id).find("li");
+			  cli.each ( function (index) {
+				  $(this).mouseover( function (event) {
+					  // cli.index(this); 当前索引
+					  cli.each ( function () {
+						  $(this).removeClass("wr1-2-now");
+						  $(".wr2-2-box").children(".wr2-2").hide()
+					  });
+					  $(this).addClass("wr1-2-now");
+					  var thisindex = cli.index(this)+1;
+					  $(".wr2-2-box .wr2-2:nth-child(" + thisindex + ")").show()
+				  });
+			  });
+		  }
+	  }
+	  TabDoc.init("wr1-2");
+</script>
+{% endblock %}

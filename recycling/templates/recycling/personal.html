@@ -1,0 +1,318 @@
+{% extends 'recycling/base.html' %}
+
+{% load my_refunc %}
+
+{% block title %}
+<title>个人中心</title>
+{% endblock %}
+
+{% block mid %}
+<meta name="google-site-verification"
+	content="MSxPs3zI5vks57VZfstHOD5EVfgQR9Y0nOUHPerhEKQ" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link href="/static/css/main.css" type="text/css" rel="stylesheet" />
+<link href="/static/css/client.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/static/js/jquerypack.js"></script>
+<script type="text/javascript" src="/static/js/code.js"></script>
+	<div class="logo_bg">
+			<div class="logo">
+				<div class="logo_nav yahei">
+					<ul>
+						<li class="nav_now"><a href="" target="_blank">个人中心</a></li>
+						<li><a href="{% url 'recycling:order' %}" target="_blank">我的订单</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="address">
+				<div class="ar1">
+					<ul>
+						<li class="ar1_now Js-tab">地址管理</li>
+						<li class="Js-tab">我的帐户</li>
+						<li class="Js-tab">交易记录</li>
+						<li class="Js-tab">碳积分</li>
+						<li class="Js-tab">我的钱包</li>
+					</ul>
+				</div>
+				<div class="address-box">
+					<div class="address-con ar2">
+						<div class="ar2-tit">地址管理</div>
+						<div class="ar2-2">
+							<p>
+								<em>交易地址</em>
+							</p>
+							<form method="post">
+								{% csrf_token %}
+							<ul>
+								<li><span>联系人姓名：</span> <input name="name" type="text"
+									class="ar-text1" />
+									<div class="clear"></div></li>
+								<li><span>地址：</span>
+									<div class="clear"></div></li>
+								<li><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+									<textarea name="address" cols="" rows=""></textarea>
+									<div class="clear"></div></li>
+								<li><span>邮政编码：</span> <input name="zipcode" type="text"
+									class="ar-text2" />
+									<div class="clear"></div></li>
+								<li><span>手机号码：</span> <input name="phone" type="text"
+									class="ar-text1" />
+									<div class="clear"></div></li>
+								<li><span>设为默认：</span> <input name="1" type="checkbox"
+									value="moren" class="checkbox-1" />
+									<div class="clear"></div></li>
+								<li><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+									<input type="submit" class="ar2-btn1 yahei"></li>
+							</ul>
+								</form>
+						</div>
+						<div class="ar2-3">
+							<ul>
+								<li class="ar2-w1">联系人</li>
+								<li class="ar2-w2">所在地区街道地址</li>
+								<li class="ar2-w3">邮编</li>
+								<li class="ar2-w4">电话</li>
+								<li class="ar2-w5">手机</li>
+								<li class="ar2-w6">&nbsp&nbsp&nbsp&nbsp</li>
+								<li class="ar2-w7">操作</li>
+							</ul>
+							<div class="clear"></div>
+
+							{% for i in myuser %}
+								{% if forloop.counter == 1 %}
+									<dl>
+										<dd class="ar2-w1">{{i.name}}</dd>
+										<dd class="ar2-w2 ar2-co1">{{i.address}}</dd>
+										<dd class="ar2-w3">{{i.Zipcode}}</dd>
+										<dd class="ar2-w4"></dd>
+										<dd class="ar2-w5">{{i.telephone}}</dd>
+										<dd class="ar2-w6 ar2-co2">默认地址</dd>
+										<dd class="ar2-w7 ar2-co3">
+											<a href="">修改</a> | <a href="">删除</a>
+										</dd>
+									</dl>
+									<div class="clear"></div>
+
+								{% else %}
+									<dl>
+										<dd class="ar2-w1">{{i.name}}</dd>
+										<dd class="ar2-w2 ar2-co1">{{i.address}}</dd>
+										<dd class="ar2-w3">{{i.Zipcode}}</dd>
+										<dd class="ar2-w4"></dd>
+										<dd class="ar2-w5">{{i.telephone}}</dd>
+										<dd class="ar2-w6 ar2-co2"></dd>
+										<dd class="ar2-w7 ar2-co3">
+											<a href="">修改</a> | <a href="">删除</a>
+										</dd>
+									</dl>
+									<div class="clear"></div>
+								{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+					<div class="address-con my-account hide">
+						<div class="ar2-tit">
+							我的账户<span> > 添加银行卡</span>
+						</div>
+						<div class="my-account-2">
+							<ul>
+								<li><span>姓 名：</span> <input name="" type="text"
+									class="my-a-text1" />
+									<div class="clear"></div></li>
+								<li><span>银行卡号：</span> <input name="" type="text"
+									class="my-a-text1" />
+
+									<div class="clear"></div></li>
+								<li><p>输入银行卡号后会只能识别银行和卡种</p></li>
+								<li><span>卡户银行：</span>
+									<div class="my-accountDiv1">
+										<select name="select" id="select4" class="my-accountDiv2">
+											<div class="option">
+												<option value="0" selected="selected"></option>
+												<option>中国工商银行</option>
+												<option>中国建设银行</option>
+												<option>中国农业银行</option>
+											</div>
+										</select>
+									</div>
+
+									<div class="clear"></div></li>
+								<li><p>请选择开会银行</p></li>
+								<li><span>验证短信：</span> <input name="" type="text"
+									class="my-a-text2" /> <input name="" type="button"
+									class="my-a-text3" value="获取短信" />
+									<div class="clear"></div></li>
+								<li><span>&nbsp&nbsp&nbsp&nbsp</span> <input name=""
+									type="button" class="my-account-btn1" value="确定" />
+									<div class="clear"></div></li>
+								<li><span>&nbsp&nbsp&nbsp&nbsp</span> <input name=""
+									type="checkbox" value="" class="checkbox-2" />
+									<p>同意《服务协议》</p>
+									<div class="clear"></div></li>
+							</ul>
+						</div>
+					</div>
+					<div class="address-con transaction-record hide">
+						<div class="tr1-1">
+							<ul>
+								<li class="tr1-w1">日期</li>
+								<li class="tr1-w2">交易类型</li>
+								<li class="tr1-w3">订单/申请单编号</li>
+								<li class="tr1-w4">金额</li>
+								<li class="tr1-w5">状态</li>
+							</ul>
+							<div class="clear"></div>
+							<dl>
+								<dd class="tr1-w1 tr1-co1">2015-06-20 20:12</dd>
+								<dd class="tr1-w2 tr1-co2">获取佣金</dd>
+								<dd class="tr1-w3 tr1-co3">er121288</dd>
+								<dd class="tr1-w4 tr1-co4">500</dd>
+								<dd class="tr1-w5 tr1-co5 brnone">交易成功</dd>
+							</dl>
+							<div class="clear"></div>
+							<dl>
+								<dd class="tr1-w1 tr1-co1">2015-06-20 20:12</dd>
+								<dd class="tr1-w2 tr1-co2">获取佣金</dd>
+								<dd class="tr1-w3 tr1-co3">er121288</dd>
+								<dd class="tr1-w4 tr1-co4">500</dd>
+								<dd class="tr1-w5 tr1-co5 brnone">交易成功</dd>
+							</dl>
+							<div class="clear"></div>
+							<dl>
+								<dd class="tr1-w1 tr1-co1">2015-06-20 20:12</dd>
+								<dd class="tr1-w2 tr1-co2">获取佣金</dd>
+								<dd class="tr1-w3 tr1-co3">er121288</dd>
+								<dd class="tr1-w4 tr1-co4 red">-500</dd>
+								<dd class="tr1-w5 tr1-co5 brnone">交易成功</dd>
+							</dl>
+							<div class="clear"></div>
+
+
+						</div>
+					</div>
+					<div class="address-con carbon-credits hide">
+						<div class="carbon1-box">
+							<div class="carbon1-1">帐户余额</div>
+							<div class="carbon1-2">
+								<strong class="yahei">300.00</strong> <span>碳积分兑换 ></span>
+							</div>
+						</div>
+						<div class="carbon2-1">
+							<ul>
+								<li class="cc2-w1">订单编号</li>
+								<li class="cc2-w2">订单状态</li>
+								<li class="cc2-w3">提交时间</li>
+								<li class="cc2-w4">预约时间</li>
+								<li class="cc2-w5">获取碳积分</li>
+							</ul>
+							<div class="clear"></div>
+							<dl>
+								<dd class="cc2-w1 cc2-co1">er121288</dd>
+								<dd class="cc2-w2 cc2-co2">已完成</dd>
+								<dd class="cc2-w3 cc2-co2">2015-06-20 20:12</dd>
+								<dd class="cc2-w4 cc2-co2">2015-06-19 20:12</dd>
+								<dd class="cc2-w5 cc2-co3 brnone">500</dd>
+							</dl>
+							<div class="clear"></div>
+							<dl>
+								<dd class="cc2-w1 cc2-co1">er121288</dd>
+								<dd class="cc2-w2 cc2-co2">已完成</dd>
+								<dd class="cc2-w3 cc2-co2">2015-06-20 20:12</dd>
+								<dd class="cc2-w4 cc2-co2">2015-06-19 20:12</dd>
+								<dd class="cc2-w5 cc2-co3 brnone">500</dd>
+							</dl>
+							<div class="clear"></div>
+							<dl>
+								<dd class="cc2-w1 cc2-co1">er121288</dd>
+								<dd class="cc2-w2 cc2-co2">已完成</dd>
+								<dd class="cc2-w3 cc2-co2">2015-06-20 20:12</dd>
+								<dd class="cc2-w4 cc2-co2">2015-06-19 20:12</dd>
+								<dd class="cc2-w5 cc2-co3 brnone">500</dd>
+							</dl>
+							<div class="clear"></div>
+
+
+						</div>
+					</div>
+					<div class="address-con my-wallet hide">
+						<div class="my-wallet-1">
+							<div class="my-w1-1">帐户余额</div>
+							<div class="my-w1-2">
+								<strong class="yahei">300.00</strong> <span>绑定银行卡 ></span>
+							</div>
+							<div class="my-w1-3">
+								<p>
+									<strong>招商银行</strong> <span>**********1445</span>
+								</p>
+								<div class="my-wl-btn yahei">我要提现</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="click-withdraw">
+							<div class="cw1-1">
+								<div class="cw1-1-1">
+									<div class="cw1-1-1-left">
+										<strong>提取余额到银行卡</strong> <span>余额：<em>100.00</em>元
+										</span>
+									</div>
+									<div class="cw1-1-1-right">添加银行卡</div>
+								</div>
+								<div class="cw1-1-2">
+									<ul>
+										<li><span>体现金额：</span> <input name="" type="text"
+											class="cw1-text" /> <strong>元</strong>
+											<div class="clear"></div></li>
+										<li><span>到账时间：</span> <input name="" type="radio"
+											value="" class="radio1" /> <span>3-5个工作日内到账</span>
+											<div class="clear"></div></li>
+										<li><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+											<input name="" type="button" class="cw1-btn" value="确定" /></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="clear"></div>
+				</div>
+
+
+			</div>
+
+
+			<!--LOGO END-->
+
+
+			<script type="text/javascript">
+        // 切换
+        var TabDoc = {
+            _id : null,
+            init : function(id) {
+                this._id = id;
+
+                $(".Js-tab").on("click", function(){
+                    $(this).siblings().removeClass("ar1_now");
+                    $(this).addClass("ar1_now");
+                    $(".address-con").hide().eq($(this).index()).show();
+                    if ($(this).index() == 4){
+                        $(".click-withdraw").hide();
+                        $(".my-wallet-1").show();
+                    }
+                });
+            }
+        }
+        TabDoc.init("ar1");
+        $(document).ready(function(){
+            $(".my-wl-btn").click(function(){
+                $(".click-withdraw").show();
+                $(".my-wallet-1").hide();
+            });
+
+        });
+    </script>
+
+		</div>
+{% endblock %}
