@@ -16,5 +16,13 @@ urlpatterns = [
     url('^order/$', views.order, name="order"),
     url('^personal/$', views.personal, name="personal"),
     url('^envart/(\d+)/$', views.envart, name="envart"),
+    url('^sc_category/(\d+)/$', views.sc_category, name='sc_category'),
+    url('^sc_brand/(\d+)/$', views.sc_brand, name='sc_brand'),
+    url('^sc_model/(\d+)/$', views.sc_model, name="sc_model"),
+    url('^scrappost/(\d+)/$', views.scrappost, name="scrappost"),
+    url('^basket/$', views.Basket.as_view(), name="basket"),
+    url('^removebasket/(\d+)/$', views.removebasket, name="removebasket"),
+    url('^overorder/$', views.overorder, name="overorder"),
+    url('^okorder/(\d+)/$', views.okorder, name="okorder"),
 
 ]

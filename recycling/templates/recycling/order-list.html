@@ -54,25 +54,18 @@
 				<div class="logo_left">
 					<a href="/"><img src="/static/images/logo.png" /></a>
 				</div>
-				<div class="logo_nav yahei">
-					<ul>
-						<li><a href="" target="_blank">个人中心</a></li>
-						<li class="nav_now"><a href="order-details.html"
-							target="_blank">我的订单</a></li>
-					</ul>
 
-				</div>
 
 			</div>
 		</div>
 		<div class="container">
 			<div class="order-list">
 				<div class=" order-list-tit">全部订单</div>
+
 				<div class="order-list-2">
 					<ul>
 						<li class="ol1-w1">订单编号</li>
-						<li class="ol1-w2">订单状态</li>
-						<li class="ol1-w2">回收哥</li>
+						<li class="ol1-w2">用户</li>
 						<li class="ol1-w3">提交时间</li>
 						<li class="ol1-w3">预约时间</li>
 						<li class="ol1-w4">交易地址</li>
@@ -82,20 +75,54 @@
 						<li class="ol1-w3">操作</li>
 					</ul>
 					<div class="clear"></div>
-					<dl>
-						<dd class="ol1-w1 ol1-co1">er121288</dd>
-						<dd class="ol1-w2 ol1-co2">已完成</dd>
-						<dd class="ol1-w2 ol1-co3">张某某</dd>
-						<dd class="ol1-w3 ol1-co4">2015-06-20 20:12</dd>
-						<dd class="ol1-w3 ol1-co4">2015-06-19 20:12</dd>
-						<dd class="ol1-w4 ol1-co5">广东省深圳市南山区科发路3321号科技工业园051A</dd>
-						<dd class="ol1-w5 ol1-co6">30元</dd>
-						<dd class="ol1-w5 ol1-co7">50元</dd>
-						<dd class="ol1-w5 ol1-co6">10元</dd>
-						<dd class="ol1-w3 ol1-co8 brnone">评价</dd>
-					</dl>
+					{% for i in order %}
+						<dl>
+							<dd class="ol1-w1 ol1-co1">er{{i.id}}</dd>
+							<dd class="ol1-w2 ol1-co3">{{i.name}}</dd>
+							<dd class="ol1-w3 ol1-co4">{{i.create_time}}</dd>
+							<dd class="ol1-w3 ol1-co4">{{i.appointment_time}}</dd>
+							<dd class="ol1-w4 ol1-co5">{{i.address}}</dd>
+							<dd class="ol1-w5 ol1-co6">20元</dd>
+							<dd class="ol1-w5 ol1-co7">{{i.allgold}}元</dd>
+							<dd class="ol1-w5 ol1-co6">10元</dd>
+							<dd class="ol1-w3 ol1-co8 brnone"><a href="{% url 'recycling:okorder' i.id %}">完成订单</a></dd>
+						</dl>
+					{% endfor %}
+
 					<div class="clear"></div>
 				</div>
+				<br><br><br><br>
+				<div class=" order-list-tit">已完成订单</div>
+				<div class="order-list-2">
+					<ul>
+						<li class="ol1-w1">订单编号</li>
+						<li class="ol1-w2">用户</li>
+						<li class="ol1-w3">提交时间</li>
+						<li class="ol1-w3">预约时间</li>
+						<li class="ol1-w4">交易地址</li>
+						<li class="ol1-w5">奖励金额</li>
+						<li class="ol1-w5">订单金额</li>
+						<li class="ol1-w5">佣金额</li>
+						<li class="ol1-w3">操作</li>
+					</ul>
+					<div class="clear"></div>
+					{% for i in order2 %}
+						<dl>
+							<dd class="ol1-w1 ol1-co1">er{{i.id}}</dd>
+							<dd class="ol1-w2 ol1-co3">{{i.name}}</dd>
+							<dd class="ol1-w3 ol1-co4">{{i.create_time}}</dd>
+							<dd class="ol1-w3 ol1-co4">{{i.appointment_time}}</dd>
+							<dd class="ol1-w4 ol1-co5">{{i.address}}</dd>
+							<dd class="ol1-w5 ol1-co6">20元</dd>
+							<dd class="ol1-w5 ol1-co7">{{i.allgold}}元</dd>
+							<dd class="ol1-w5 ol1-co6">10元</dd>
+							<dd class="ol1-w3 ol1-co8 brnone">订单以完成</dd>
+						</dl>
+					{% endfor %}
+
+					<div class="clear"></div>
+				</div>
+
 			</div>
 
 		</div>

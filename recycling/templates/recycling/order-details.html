@@ -1,4 +1,5 @@
 {% extends 'recycling/base.html' %}
+
 {% block title %}
 	<title>订单详情</title>
 {% endblock %}
@@ -31,6 +32,8 @@
 				<div class="order-details-tit">
 					我的订单 <span>> 订单详情</span>
 				</div>
+				{% for o in order %}
+
 				<div class="order-details-2">
 					<div class="order-details-2-1">
 						<ul>
@@ -40,71 +43,45 @@
 							<li class="od1-w3">预约时间</li>
 							<li class="od1-w3">回收时间</li>
 							<li class="od1-w4">交易地址</li>
-							<li class="od1-w5">汇总金额</li>
+							<li class="od1-w3">汇总金额</li>
 						</ul>
 						<div class="clear"></div>
 						<dl>
-							<dd class="od1-w1 od1-co1">er121288</dd>
-							<dd class="od1-w2 od1-co2">张某某</dd>
-							<dd class="od1-w3 od1-co3">2015-06-20 20:12</dd>
-							<dd class="od1-w3 od1-co3">2015-06-19 20:12</dd>
-							<dd class="od1-w3 od1-co3 ">2015-06-20 20:12</dd>
-							<dd class="od1-w4 od1-co4">广东省深圳市南山区科发路3321 号科技工业园051A</dd>
-							<dd class="od1-w5 od1-co6 brnone">300元</dd>
-
+							<dd class="od1-w1 od1-co1">er{{o.id}}</dd>
+							<dd class="od1-w2 od1-co2">{{o.name}}</dd>
+							<dd class="od1-w3 od1-co3">{{o.create_time}}</dd>
+							<dd class="od1-w3 od1-co3">{{o.appointment_time}}</dd>
+							{% if o.over_time %}
+								<dd class="od1-w3 od1-co3 ">{{o.over_time}}</dd>
+							{% else %}
+								<dd class="od1-w3 od1-co3 ">请等待回收人员上门回收</dd>
+							{% endif %}
+							<dd class="od1-w4 od1-co4">{{o.address}}</dd>
+							<dd class="od1-w5 od1-co6 brnone">￥{{o.allgold}}</dd>
 						</dl>
 						<div class="clear"></div>
 
 					</div>
 					<div class="order-details-2-2">
 						<ul>
-							<li>回收物品</li>
-							<li>品牌</li>
-							<li>规格</li>
-							<li>型号</li>
+							<li style="width: 500px">回收物品</li>
 							<li>碳积分</li>
 							<li>碳减排</li>
 							<li>交易金额</li>
 						</ul>
 						<div class="clear"></div>
-						<dl>
-							<dd>空调</dd>
-							<dd>格力</dd>
-							<dd>60</dd>
-							<dd>KFR-26GW/(26596)</dd>
-							<dd>142</dd>
-							<dd>230</dd>
-							<dd class="brnone">150元</dd>
-						</dl>
-						<dl>
-							<dd>冰箱</dd>
-							<dd>西门子</dd>
-							<dd>100</dd>
-							<dd>KFR-26GW/(26596)</dd>
-							<dd>142</dd>
-							<dd>230</dd>
-							<dd class="brnone">150元</dd>
-						</dl>
-						<dl>
-							<dd>电风扇</dd>
-							<dd>美的</dd>
-							<dd>52</dd>
-							<dd>KFR-26GW/(26596)</dd>
-							<dd>150</dd>
-							<dd>210</dd>
-							<dd class="brnone">100元</dd>
-						</dl>
-						<dl>
-							<dd>电视机</dd>
-							<dd>美的</dd>
-							<dd>62</dd>
-							<dd>KFR-26GW/(26596)</dd>
-							<dd>180</dd>
-							<dd>260</dd>
-							<dd class="brnone">50元</dd>
-						</dl>
+						{% for i in o.ordergoods_set.all %}
+							<dl>
+								<dd style="width: 500px">{{i.goodname}}</dd>
+								<dd>{{i.integral}}</dd>
+								<dd>{{i.carbonreduction}}</dd>
+								<dd class="brnone">{{i.goodprice}}元</dd>
+							</dl>
+						{% endfor %}
 					</div>
 				</div>
+				<br><br><br>
+				{% endfor %}
 				<div class="order-details-btn1 yahei">返 回</div>
 			</div>
 		</div>

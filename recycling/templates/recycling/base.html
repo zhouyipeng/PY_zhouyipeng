@@ -57,7 +57,7 @@
 					</div>
 					<span>|</span>
 					<div class="top_r3">
-						<a href="waste-baskets.html" target="_self"><img
+						<a href="{% url 'recycling:basket' %}" target="_self"><img
 							src="/static/images/top_4.png" />废品筐（0）</a>
 					</div>
 				</div>
@@ -104,6 +104,7 @@
 					<a href="about-us.html#zd_1" target="_blank">联系我们</a><a
 						href="about-us.html#zd_2" target="_blank">关于我们</a><a
 						href="about-us.html#zd_3" target="_blank">帮助中心</a>
+					<a href="{% url 'recycling:overorder' %}" target="_blank">订单完成</a>
 				</div>
 				<p>
 					© 2015 huishouge.cn All Rights Reserved<br>版权所有：格林美股份有限公司

@@ -1,5 +1,7 @@
 {% extends 'recycling/base.html' %}
 
+{% load my_refunc %}
+
 {% block title %}
 <title>废品详情</title>
 {% endblock %}
@@ -14,6 +16,10 @@
 <script type="text/javascript" src="/static/js/jquerypack.js"></script>
 <script type="text/javascript" src="/static/js/superslide.js"></script>
 <script type="text/javascript" src="/static/js/code.js"></script>
+	{% if over %}
+		<script>alert("{{over}}")</script>
+	{% endif %}
+
 <div class="waste-recycling-banner"></div>
 		<div class="container">
 			<div class="search yahei">
@@ -35,8 +41,9 @@
 				</div>
 				<div class="sd1-2 yahei">
 					<ul>
+						{% getallcategory as category %}
 						{% for i in category %}
-							<li>{{i.name}}</li>
+							<li><a href="{% url 'recycling:sc_category' i.id %}">{{i.name}}</a></li>
 						{% endfor %}
 					</ul>
 					<div class="clear"></div>
@@ -48,61 +55,72 @@
 				</div>
 				<div class="sd2-2 yahei">
 					<ul>
+						{% getallbrand as brand %}
 						{% for i in brand %}
-							<li>{{i.name}}</li>
+							<li><a href="{% url 'recycling:sc_brand' i.id %}">{{i.name}}</a></li>
 						{% endfor %}
 
 					</ul>
 				</div>
 			</div>
+			{% if goods %}
 			<div class="sd3">
 				<div class="sd3-1 yahei">
 					<strong>规格型号</strong> <span>Specifications Model</span>
 				</div>
 				<div class="sd3-2 yahei">
 					<ul>
-						<li>KFR-26GW/(26596)FNAa-A3</li>
-						<li>KFR-35GW/(35596)FNAa-A3</li>
-						<li>KY-36N</li>
+						{% for i in goods %}
+						<li><a href="{% url 'recycling:sc_model' i.id %}">{{ i.goodsmodel }}</a></li>
+						{% endfor %}
 					</ul>
 					<div class="clear"></div>
 				</div>
 			</div>
+			{% endif %}
+
+			{% if onegoods %}
 			<div class="sd4 yahei">
 				<div class="sd4-1">
+					<br><br>
 					<strong>废品描述</strong> <span>Waste description</span>
+					<br>
+					<strong>名称：{{ onegoods.goodsmodel }}</strong>
 				</div>
+				<form action="{% url 'recycling:scrappost' onegoods.id %}" method="post" >
+					{% csrf_token %}
 				<div class="sd4-2">
-					<ul>
-						<!--<li> <input type="checkbox" name="CheckboxGroup1" value="复选筐" id="CheckboxGroup1_0" class="Checkbox Checkbox-2"/>复选筐</li>-->
-						<li><div class="Checkbox Checkbox-2"></div>
-							<span>压缩机缺失</span></li>
-						<li><div class="Checkbox"></div>
-							<span>冷凝器缺失</span></li>
-						<li><div class="Checkbox Checkbox-2"></div>
-							<span>节流管缺失</span></li>
-						<li><div class="Checkbox"></div>
-							<span>干燥过滤器缺失</span></li>
-						<li><div class="Checkbox"></div>
-							<span>风扇电机缺失</span></li>
-						<li><div class="Checkbox"></div>
-							<span>热力膨胀阀缺失</span></li>
-					</ul>
+						<ul>
+							<!--<li> <input type="checkbox" name="CheckboxGroup1" value="复选筐" id="CheckboxGroup1_0" class="Checkbox Checkbox-2"/>复选筐</li>-->
+							<li>
+								<input name="1" value="压缩机缺失" type="checkbox">压缩机缺失</li>
+							<li>
+								<input name="2" value="冷凝器缺失" type="checkbox">冷凝器缺失</li>
+							<li>
+								<input name="3" value="节流管缺失" type="checkbox">节流管缺失</li>
+							<li>
+								<input name="4" value="干燥过滤器缺失" type="checkbox">干燥过滤器缺失</li>
+							<li>
+								<input name="5" value="风扇电机缺失" type="checkbox">风扇电机缺失</li>
+							<li>
+								<input name="6" value="热力膨胀阀缺失" type="checkbox">热力膨胀阀缺失</li>
+						</ul>
 					<div class="clear"></div>
 				</div>
 				<div class="sd4-3">
 					<div class="sd4-3-1">
-						预估价：<span>158元</span>
+						预估价：<span>{{ onegoods.price }}</span>
 					</div>
 					<div class="sd4-3-2">
 						<ul>
 							<li class="sd4-btn1">返回上一页</li>
-							<li class="sd4-btn2 mrnone">加入废品筺</li>
+							<li class="sd4-btn2 mrnone"><button type="submit">加入废品筺</button></li>
 						</ul>
 					</div>
 					<div class="clear"></div>
 				</div>
+				</form>
+					{% endif %}
 			</div>
-
 		</div>
 {% endblock %}

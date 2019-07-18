@@ -27,7 +27,7 @@ document.writeln("         <a href='/scrap/'><img src='/static/images/I1_ico1.pn
 document.writeln("       </dd>");
 document.writeln("       <dt><img src='/static/images/I1_ico3.png'></dt> ");
 document.writeln("       <dd> ");
-document.writeln("         <img src='/static/images/I1_ico2.png'><div class='yahei'><strong>我要做回收哥</strong></div> ");
+document.writeln("         <a href='/overorder/'><img src='/static/images/I1_ico2.png'><div class='yahei'><strong>我要做回收哥</strong></div></a> ");
 document.writeln("       </dd>");
 document.writeln("    </dl>");
 document.writeln("   </div>");

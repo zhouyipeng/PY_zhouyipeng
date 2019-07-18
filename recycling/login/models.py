@@ -22,6 +22,7 @@ class UserMsg(models.Model):
     integral = models.IntegerField(default=0)
     # 碳减排
     carbonreduction = models.IntegerField(default=0)
+    usergold = models.IntegerField(default=0)
     user = models.ForeignKey(RecyclingUser, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -41,6 +42,16 @@ class Brand(models.Model):
     def __str__(self):
         return self.name
 
+# 单个商品
+class oneGoods(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
+    goodsmodel = models.CharField(max_length=50)
+    price = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.goodsmodel
+
 # 商品类
 class Goods(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -48,6 +59,39 @@ class Goods(models.Model):
     goodsmodel = models.CharField(max_length=40)
     detail = models.CharField(max_length=200)
     user = models.ForeignKey(RecyclingUser, on_delete=models.CASCADE)
+
+# 购物车类
+class CartGoods(models.Model):
+    goodname = models.CharField(max_length=200)
+    goodprice = models.IntegerField()
+    integral = models.IntegerField(default=0)
+    # 碳减排
+    carbonreduction = models.IntegerField(default=0)
+    user = models.ForeignKey(RecyclingUser, on_delete=models.CASCADE)
+
+# 订单类
+class Order(models.Model):
+    address = models.CharField(max_length=50)
+    name = models.CharField(max_length=20)
+    userphone = models.IntegerField()
+    allgold = models.IntegerField(default=0)
+    allintegral = models.IntegerField(default=0)
+    allcarbonreduction = models.IntegerField(default=0)
+    create_time = models.DateTimeField(auto_now_add=True)
+    appointment_time = models.CharField(max_length=50)
+    over_time = models.CharField(max_length=50, null=True)
+    status = models.BooleanField(default=False)
+    user = models.ForeignKey(RecyclingUser, on_delete=models.CASCADE)
+
+# 订单商品类
+class OrderGoods(models.Model):
+    goodname = models.CharField(max_length=200)
+    goodprice = models.IntegerField()
+    integral = models.IntegerField(default=0)
+    # 碳减排
+    carbonreduction = models.IntegerField(default=0)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+
 
 # 文章标签
 class ActivityTags(models.Model):
