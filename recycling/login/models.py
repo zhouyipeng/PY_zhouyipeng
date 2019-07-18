@@ -111,7 +111,12 @@ class Activity(models.Model):
     def __str__(self):
         return self.title
 
-
+# 碳积分兑换
+class Pointsfor(models.Model):
+    img = models.ImageField(upload_to="integral")
+    gold = models.IntegerField()
+    goodsname = models.CharField(max_length=100)
+    consumption = models.IntegerField()
 
 
 

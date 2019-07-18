@@ -174,7 +174,7 @@
 
 									<dd class="tr1-w2 tr1-co2">上门取货</dd>
 									<dd class="tr1-w3 tr1-co3">er{{i.id}}</dd>
-									<dd class="tr1-w4 tr1-co4">{{i.allgold}}</dd>
+									<dd class="tr1-w4 tr1-co4">￥{{i.allgold}}</dd>
 									{% if i.status %}
 										<dd class="tr1-w5 tr1-co5 brnone">交易成功</dd>
 									{% else %}
@@ -193,9 +193,9 @@
 					</div>
 					<div class="address-con carbon-credits hide">
 						<div class="carbon1-box">
-							<div class="carbon1-1">帐户余额</div>
+							<div class="carbon1-1">帐户碳积分</div>
 							<div class="carbon1-2">
-								<strong class="yahei">{{user.integral}}</strong> <span>碳积分兑换 ></span>
+								<strong class="yahei">{{user.integral}}</strong> <span><a href="{% url 'recycling:waste' %}">碳积分兑换 ></a></span>
 							</div>
 						</div>
 						<div class="carbon2-1">
@@ -217,7 +217,7 @@
 									{% endif %}
 									<dd class="cc2-w3 cc2-co2">{{i.create_time}}</dd>
 									<dd class="cc2-w4 cc2-co2">{{i.appointment_time}}</dd>
-									<dd class="cc2-w5 cc2-co3 brnone">￥{{i.allgold}}</dd>
+									<dd class="cc2-w5 cc2-co3 brnone">{{i.allgold}}</dd>
 								</dl>
 								<div class="clear"></div>
 							{% endfor %}

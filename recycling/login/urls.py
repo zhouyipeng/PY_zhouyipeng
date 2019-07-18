@@ -9,6 +9,7 @@ urlpatterns = [
     url('^login/$', views.userlogin, name="login"),
     url('^userloginout/$', views.userloginout, name="userloginout"),
     url('^waste/$', views.Waste.as_view(), name='waste'),
+    url('^consumption/(\d+)/$', views.consumption, name="consumption"),
     url('^environ/$', views.environ, name="environ"),
     url('^hazard/$', views.hazard, name="hazard"),
     url('^brother/$', views.brother, name="brother"),

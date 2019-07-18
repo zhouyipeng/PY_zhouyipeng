@@ -65,9 +65,20 @@ def userloginout(request):
 # 废品交投
 class Waste(View):
     def get(self, request):
-        return render(request, 'recycling/waste-recycling.html')
+        point = Pointsfor.objects.all()
+        return render(request, 'recycling/waste-recycling.html', locals())
     def post(self, request):
         return HttpResponse("完成")
+
+# 积分商品兑换
+@checklogin
+def consumption(request, id):
+    point = Pointsfor.objects.all()
+    onepoint = Pointsfor.objects.get(id=id)
+    usermsg = UserMsg.objects.filter(user=request.user).first()
+    usermsg.integral -= onepoint.consumption
+    usermsg.save()
+    return render(request, 'recycling/waste-recycling.html', {"point":point, "ok": "购买完成，消耗%s积分,剩余%s积分。"%(onepoint.consumption, usermsg.integral)})
 
 
 # 成为回收员
