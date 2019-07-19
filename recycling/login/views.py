@@ -20,8 +20,7 @@ def checklogin(fun):
 
 # 主页
 def index(request):
-    ads = Ads.objects.all()
-    return render(request, 'recycling/index.html', {"ads": ads})
+    return render(request, 'recycling/index.html')
 
 # 注册
 def register(request):

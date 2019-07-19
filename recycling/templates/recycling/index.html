@@ -1,5 +1,5 @@
 ﻿{% extends 'recycling/base.html' %}
-
+{% load my_refunc %}
 {% block title %}
 	<title>回收哥首页</title>
 {% endblock %}
@@ -10,6 +10,7 @@
 <div class="banner">
 <div class="hd">
     <ul style="position: relative; width: 1349px; height: 742px;">
+        {% getAds as ads %}
 		{% for i in ads %}
 		<li style="background: url(/media/{{i.img}}) center top no-repeat; position: absolute; width: 1349px; left: 0px; top: 0px; display: list-item;"><a href="" target="_blank"></a></li>
 		{% endfor %}

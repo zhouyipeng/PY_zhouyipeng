@@ -1,5 +1,5 @@
 from django.template import library
-from ..models import UserMsg, Category, Brand, Order, OrderGoods
+from ..models import UserMsg, Category, Brand, Order, OrderGoods, Ads
 
 register = library.Library()
 
@@ -14,6 +14,10 @@ def getallbrand():
     brand = Brand.objects.all()
     return brand
 
+@register.simple_tag
+def getAds():
+    ads = Ads.objects.all()
+    return ads
 
 
 
