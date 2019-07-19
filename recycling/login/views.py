@@ -4,6 +4,7 @@ from django.views.generic import View
 from .models import *
 from django.contrib.auth import login, logout, authenticate
 from datetime import datetime
+from django.utils.decorators import method_decorator
 
 # Create your views here.
 
@@ -19,7 +20,8 @@ def checklogin(fun):
 
 # 主页
 def index(request):
-    return render(request, 'recycling/index.html')
+    ads = Ads.objects.all()
+    return render(request, 'recycling/index.html', {"ads": ads})
 
 # 注册
 def register(request):
@@ -149,9 +151,8 @@ def scrappost(request, id):
         return render(request, 'recycling/scrap-details.html', {"over":'添加成功'})
 
 # 废品框
-
+@method_decorator(checklogin, name="dispatch")
 class Basket(View):
-    @checklogin
     def get(self, request):
         user = RecyclingUser.objects.filter(username=request.user).first()
         usermsg = user.usermsg_set.first()
@@ -166,7 +167,6 @@ class Basket(View):
         return render(request, 'recycling/waste-baskets.html', locals())
 
     # 提交订单
-    @checklogin
     def post(self, request):
         try:
             address = request.POST.get("address")

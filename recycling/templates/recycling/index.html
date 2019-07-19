@@ -6,6 +6,60 @@
 
 
 {% block mid %}
-	<script type="text/javascript" src="/static/js/banner.js"></script>
+<div class="banner_bg">
+<div class="banner">
+<div class="hd">
+    <ul style="position: relative; width: 1349px; height: 742px;">
+		{% for i in ads %}
+		<li style="background: url(/media/{{i.img}}) center top no-repeat; position: absolute; width: 1349px; left: 0px; top: 0px; display: list-item;"><a href="" target="_blank"></a></li>
+		{% endfor %}
+
+    </ul>
+</div>
+<a class="prev" href="javascript:void(0)"></a><a class="next" href="javascript:void(0)"></a>
+<div class="bd"><div class="kd"><a class="prev" href="javascript:void(0)"></a> <a class="next" href="javascript:void(0)"></a></div>
+    <div class="bd_box"><div class="bd_btn" style="display: none;"><ul><li class="">1</li><li class="on">2</li><li class="">3</li></ul></div></div>
+</div>
+</div>
+</div>
+<div class="banner_box">
+  <div class="banner_fix">
+    <div class="banner_fix_1">
+    <span class="yahei">客服热线:</span>
+    <p>400-866-6688</p>
+    </div>
+    <div class="banner_fix_2">
+    <dl>
+       <dd>
+         <a href="/scrap/"><img src="/static/images/I1_ico1.png"><div class="yahei"><strong>废品回收入口</strong></div></a>
+       </dd>
+       <dt><img src="/static/images/I1_ico3.png"></dt>
+       <dd>
+         <a href="/overorder/"><img src="/static/images/I1_ico2.png"><div class="yahei"><strong>我要做回收哥</strong></div></a>
+       </dd>
+    </dl>
+   </div>
+ </div>
+</div>
+
+<script>
+	oxbix_changes (".banner", ".hd", ".bd", 8000);
+$(window).resize(function() { re_ban();});
+re_ban()
+
+// 图片切换效果
+function oxbix_changes (boxCell, mainCell, numCell, times) {
+	times = times ? times : 5000;
+	/*鼠标移过，左右按钮显示*/
+	$(boxCell).hover(function(){
+		//$(this).find(".prev,.next,.bd_btn").fadeIn(500);
+		$(this).find(".bd_btn").fadeIn(500);
+	},function(){
+		$(this).find(".bd_btn").fadeOut(500);
+	})
+	$(boxCell).slide({ titCell:numCell + " ul" , mainCell:mainCell + " ul" , effect:"fold", autoPlay:true, delayTime:700 , interTime:times, autoPage:true });
+}
+</script>
+
 {% endblock %}
 
